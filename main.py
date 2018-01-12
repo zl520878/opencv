@@ -13,13 +13,14 @@ from matplotlib import pyplot as plt
 import cv2
 import numpy as np
 
-img = cv2.imread("image/2.png")
-b, g, r = cv2.split(img)
-cv2.imshow("Blue", r)
-cv2.imshow("Red", g)
-cv2.imshow("Green", b)
-cv2.merge([b,g,r], img)
-cv2.imshow("im", img)
+img = cv2.imread("image/5.png")
+kernel = np.ones((3,3),np.uint8)
+fs = cv2.erode(img, kernel, iterations=5)
+pz = cv2.dilate(fs, kernel, iterations=5)
+pz = ~pz
+cv2.imshow("yt", img)
+cv2.imshow("pz", pz)
+cv2.imshow("fs", fs)
 cv2.waitKey(0)
 
 cv2.destroyAllWindows()
