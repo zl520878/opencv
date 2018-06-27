@@ -60,6 +60,7 @@ def edgeCheck():
 
 if __name__ == "__main__":
     #傅里叶变换
+    #测试注释
     # fft()
     #边缘检测
     edgeCheck()
